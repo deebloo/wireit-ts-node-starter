@@ -1,0 +1,47 @@
+{
+  "name": "wireit-ts-node-starter",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "wireit"
+  },
+  "wireit": {
+    "start": {
+      "command": "node target/main.js",
+      "service": true,
+      "files": [
+        "target/**"
+      ],
+      "dependencies": [
+        {
+          "script": "tsc",
+          "cascade": false
+        }
+      ]
+    },
+    "tsc": {
+      "command": "tsc --build --pretty",
+      "files": [
+        "src/**",
+        "tsconfig.json"
+      ],
+      "output": [
+        "target/**",
+        "tsconfig.tsbuildinfo"
+      ]
+    }
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^20.11.16",
+    "typescript": "^5.3.3",
+    "wireit": "^0.14.4"
+  },
+  "dependencies": {
+    "fastify": "^4.26.0"
+  }
+}
